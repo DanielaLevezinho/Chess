@@ -1,7 +1,7 @@
 const colyseus = require("colyseus");
 const { Chess } = require("./chessLogic");
 
-class MyRoom extends colyseus.Room {
+class ChessRoom extends colyseus.Room {
   // When room is initialized
   constructor() {
     super();
@@ -109,4 +109,4 @@ class MyRoom extends colyseus.Room {
   // Cleanup callback, called after there are no more clients in the room. (see `autoDispose`)
   onDispose() {}
 }
-exports.MyRoom = MyRoom;
+exports.ChessRoom = ChessRoom;
