@@ -145,7 +145,7 @@ exports.Chess = class Chess {
     const originalRowIndex = this.rows.findIndex(
       (row) => row === originalPos[1]
     );
-    const newPos = this.rows.reverse()[originalRowIndex];
+    const newPos = [...this.rows].reverse()[originalRowIndex];
     const newPosition = originalPos[0] + newPos;
     return newPosition;
   }
@@ -344,10 +344,12 @@ exports.Chess = class Chess {
     this.turn = turn === "white" ? "black" : "white";
     this.moves = this.calcPieceMoves(this.pieces, this.turn);
     this.movablePieces = this.highlightMovablePieces(this.turn);
-    this.room.sendGameState(
-      this.clientGameState(),
-      this.mirrorClientGameState()
-    );
+    setTimeout(() =>{
+      this.room.sendGameState(
+        this.clientGameState(),
+        this.mirrorClientGameState()
+      );
+    }, 500)
   }
 
   takeTurnOnline(move, player) {
