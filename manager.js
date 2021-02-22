@@ -2,7 +2,7 @@ let game = null;
 let app = null;
 let difficulty = 0;
 let nameLogin = "";
-let client = new Colyseus.Client("ws://localhost:3000");
+let client = new Colyseus.Client("ws://https://chesslevezinho.herokuapp.com/");
 let room;
 
 function main() {
